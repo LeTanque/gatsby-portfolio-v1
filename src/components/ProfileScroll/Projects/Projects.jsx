@@ -25,12 +25,8 @@ const Projects = props => {
                 {userProjects && userProjects.map(project => (
                     <React.Fragment key={project.id}>
                         <Project 
-                            
                             project={project}
                         />
-                        {/* {project.id === userProjects.length - 1 ? null : (
-                            <hr/>
-                        )} */}
                     </ React.Fragment>
                 ))}
             </div>

@@ -1,0 +1,7 @@
+.link__footer {
+    @include link();
+}
+
+footer {
+    font-size: 1.4rem;
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import woods from "../../images/matthew-ronder-seid-xYd99V3S5aI-unsplash.jpg"
 
 const FogBanner = () => {
     const data = useStaticQuery(graphql`
@@ -57,7 +58,7 @@ const FogBanner = () => {
             <section
                 className="section__foggy"
                 style={{
-                    backgroundImage: `url(../images/matthew-ronder-seid-xYd99V3S5aI-unsplash.jpg)`,
+                    backgroundImage: `url(${woods})`,
                 }}
             >
                 <div className="block__greeting">

@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { GoChevronUp, GoChevronDown, GoLink, GoMarkGithub } from "react-icons/go";
+import React, { useState } from "react";
+import { GoLink, GoMarkGithub } from "react-icons/go";
 
 
 const Project = props => {
     const { project } = props;
-    const mediaMatch = window.matchMedia('(min-width: 900px)');
-    const [ matches, setMatches ] = useState(mediaMatch.matches);
     
-
     const [ visible, setVisible ] = useState({
         visible: false,
         containerHeight: "100%",
@@ -15,43 +12,10 @@ const Project = props => {
         imgMargin: "0 auto"
     })
 
-    const pictureReveal = () => {
-        if (visible.visible) {
-            setVisible({
-                visible: false,
-                containerHeight: "55px",
-                containerBg: "rgba(17,17,17,0.97)",
-                imgMargin: "-175px auto 0 auto"
-            })
-        }
-        
-        else if (!visible.visible && matches) {
-            setVisible({
-                visible: true,
-                containerHeight: "550px",
-                containerBg: "rgba(17,17,17,0)",
-                imgMargin: "0 auto"
-            })
-        }
-        else if (!visible.visible && !matches) {
-            setVisible({
-                visible: true,
-                containerHeight: "100%",
-                containerBg: "rgba(17,17,17,0)",
-                imgMargin: "0 auto"
-            })
-        }
-    }
-
-    useEffect(() => {
-        const handler = e => setMatches(e.matches);
-        mediaMatch.addListener(handler);
-        return () => mediaMatch.removeListener(handler);
-    });
-
     return (
         <>
             <div  className="block__single-project">
+
                 <div className="block__single-project-header">
                     <img src={project.iconUrl} alt={project.name} className="img__project-icon" />
                     <h4>{project.name}</h4>
@@ -65,14 +29,6 @@ const Project = props => {
                         margin: visible.imgMargin
                     }}/>
                 </div>
-
-                {/* <div className="block__project-image-action" >
-                    {visible.visible ? (
-                        <GoChevronUp onClick={pictureReveal} />
-                    ) : (
-                        <GoChevronDown onClick={pictureReveal} />
-                    )}
-                </div> */}
 
                 <div className="block__single-project-description">
                     <p>{project.description}</p>

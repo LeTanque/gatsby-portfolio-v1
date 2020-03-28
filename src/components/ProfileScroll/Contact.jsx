@@ -31,11 +31,6 @@ const Contact = props => {
 
     return (
         <main className="main__contact-container" >
-            {/* <section className="section__contact" >
-                <div className="block__contact-header">
-                    <h3>Contact</h3>
-                </div>
-            </section> */}
             <div className="block__contact">
                 {userContact && userContact.map((info, index) => (
                     <React.Fragment key={index} >
